@@ -23,7 +23,7 @@ public class Tablero {
             System.out.println("Ronda " + ronda);
             System.out.print("Ficha de color " + fichas.get(0).color + ": ");
             fichas.get(0).avanzar();
-            if (fichas.get(0).posicion > numeroCasillas)
+            if (fichas.get(0).posicion >= numeroCasillas)
                 break;
                 
             System.out.print("Ficha de color " + fichas.get(1).color + ": ");
