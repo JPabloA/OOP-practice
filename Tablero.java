@@ -1,43 +1,43 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.scanner;
 
 public class Tablero {
 
     int numeroCasillas;
-    List<Ficha> fichas = new ArrayList<Ficha>();
+    List<Jugador> jugadores = new ArrayList<Jugador>();
 
-    public Tablero(){
-        Ficha player1 = new Ficha("Rojo");
-        Ficha player2 = new Ficha("Amarillo");
+    public Tablero(String nombre1, String nombre2){
+        Ficha player1 = new Jugador(nombre1, "Rojo");
+        Ficha player2 = new Jugador(nombre2, "Amarillo");
         numeroCasillas = 100;
-        fichas.add(player1);
-        fichas.add(player2);
+        jugadores.add(player1);
+        jugadores.add(player2);
     }
     
-
     public void gameLogic(){
         int ronda = 1;
 
-        while ((fichas.get(0).posicion < numeroCasillas) && (fichas.get(1).posicion < numeroCasillas)){
+        while ((jugadores.get(0).getFicha.posicion < numeroCasillas) && (jugadores.get(1).getFicha.posicion < numeroCasillas)){
             System.out.println("");
             System.out.println("Ronda " + ronda);
-            System.out.print("Ficha de color " + fichas.get(0).color + ": ");
-            fichas.get(0).avanzar();
-            if (fichas.get(0).posicion >= numeroCasillas)
+            System.out.print("Turno de " + jugadores.get(0).getNombre() + ": ");
+            jugadores.get(0).getFicha.avanzar();
+            if (jugadores.get(0).getFicha().posicion >= numeroCasillas)
                 break;
                 
-            System.out.print("Ficha de color " + fichas.get(1).color + ": ");
-            fichas.get(1).avanzar();
+            System.out.print("Turno de " + jugadores.get(1).getNombre() + ": ");
+            jugadores.get(1).getFicha().avanzar();
             ronda ++;
         }
 
         System.out.println("");
-        if (fichas.get(0).posicion >= numeroCasillas){
-            System.out.println("Felicidades, la ficha de color " + fichas.get(0).color + " es la ganadora del juego");
+        if (jugadores.get(0).getFicha().posicion >= numeroCasillas){
+            System.out.println("Felicidades, " + jugadores.get(0).getNombre + "es el ganador del juego");
             System.out.println("");
         }
-        else if (fichas.get(1).posicion >= numeroCasillas){
-            System.out.println("Felicidades, la ficha de color " + fichas.get(1).color + " es la ganadora del juego");
+        else if (jugadores.get(1).getFicha().posicion >= numeroCasillas){
+            System.out.println("Felicidades, " + jugadores.get(1).getNombre + "es el ganador del juego");
             System.out.println("");
         }
     }
